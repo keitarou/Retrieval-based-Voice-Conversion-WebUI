@@ -18,3 +18,21 @@ services:
             - driver: nvidia
               count: 1
               capabilities: [gpu]
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: api
+    volumes:
+      - ./weights:/app/assets/weights
+      - ./opt:/app/opt
+    ports:
+      - 8080:8080
+    command: /bin/bash -c "python3 infer-api.py"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
