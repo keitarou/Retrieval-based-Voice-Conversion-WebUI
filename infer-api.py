@@ -47,7 +47,7 @@ async def text2voice2voice(
     model_filename: str = Path(..., description="Filename of the .pth model"),
     index: str = Path(..., description="Filename of the index file"),
     text: str = Form(..., description="Text to convert to speech"),
-    voice_id: str = Form(default="Mizuki", description="Amazon Polly voice ID")
+    voice_id: str = Form(default="Kazuha", description="Amazon Polly voice ID")
 ):
     try:
         polly_client = boto3.Session(region_name=os.getenv('AWS_REGION', 'ap-northeast-1')).client('polly')
