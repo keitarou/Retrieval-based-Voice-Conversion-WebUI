@@ -3,7 +3,7 @@
 FROM nvidia/cuda:11.6.2-cudnn8-runtime-ubuntu20.04
 
 EXPOSE 7865
-EXPOSE 8000
+EXPOSE 8080
 
 WORKDIR /app
 
