@@ -51,7 +51,7 @@ async def text2voice2voice(
 ):
     try:
         polly_client = boto3.Session(region_name=os.getenv('AWS_REGION', 'ap-northeast-1')).client('polly')
-        response = polly_client.synthesize_speech(Text=text, OutputFormat='pcm', VoiceId=voice_id, SampleRate='16000')
+        response = polly_client.synthesize_speech(Text=text, OutputFormat='pcm', Engine='neural', VoiceId=voice_id, SampleRate='16000')
 
         with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as tmp_wav_file:
             tmp_wav_path = tmp_wav_file.name
