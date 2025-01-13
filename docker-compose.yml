@@ -5,6 +5,7 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: rvc
+    shm_size: '2gb'
     volumes:
       - ./weights:/app/assets/weights
       - ./opt:/app/opt
